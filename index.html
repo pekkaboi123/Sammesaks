@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="nb">
 <head>
   <meta charset="UTF-8" />
@@ -10,438 +9,126 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-```
-:root {
-  --bg:      #0f0f0f;
-  --surface: #181818;
-  --card:    #1e1e1e;
-  --border:  #2a2a2a;
-  --text:    #f0ece4;
-  --muted:   #888880;
-  --gold:    #d4a017;
-  --gold-l:  #f0c040;
-  --gold-dim: rgba(212,160,23,0.12);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-a { text-decoration: none; color: inherit; }
-
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(15,15,15,0.95);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2rem; height: 64px;
-}
-
-.nav-logo img {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-}
-
-.nav-links { display: flex; gap: 0.25rem; list-style: none; }
-.nav-links a {
-  display: block; padding: 0.4rem 0.9rem;
-  font-size: 0.8rem; color: var(--muted);
-  border-radius: 5px; font-weight: 400;
-  transition: color 0.15s, background 0.15s;
-  letter-spacing: 0.03em;
-}
-.nav-links a:hover { color: var(--text); background: var(--surface); }
-
-.nav-cta {
-  background: var(--gold) !important;
-  color: #0f0f0f !important;
-  font-weight: 600 !important;
-  padding: 0.45rem 1.2rem !important;
-  border-radius: 5px;
-}
-.nav-cta:hover { background: var(--gold-l) !important; }
-
-/* HERO */
-.hero {
-  padding-top: 64px;
-  min-height: 100svh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(212,160,23,0.06), transparent 70%);
-  pointer-events: none;
-}
-
-.hero-left {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 5rem 3rem 5rem 5rem;
-  position: relative; z-index: 1;
-}
-
-.hero-label {
-  font-size: 0.68rem; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.5rem;
-  display: flex; align-items: center; gap: 0.6rem;
-}
-.hero-label::before { content: ''; width: 28px; height: 1px; background: var(--gold); display: inline-block; }
-
-.hero-h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(3rem, 5.5vw, 4.5rem);
-  font-weight: 400; line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
-}
-
-.hero-h1 em { font-style: italic; color: var(--gold); }
-
-.hero-p {
-  font-size: 0.95rem; color: var(--muted);
-  max-width: 360px; line-height: 1.8;
-  margin-bottom: 2.25rem;
-}
-
-.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
-
-.btn-gold {
-  display: inline-block;
-  background: var(--gold); color: #0f0f0f;
-  padding: 0.85rem 2rem; border-radius: 5px;
-  font-size: 0.85rem; font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
-}
-.btn-gold:hover { background: var(--gold-l); transform: translateY(-1px); }
-
-.btn-ghost {
-  display: inline-block;
-  border: 1px solid var(--border); color: var(--muted);
-  padding: 0.85rem 2rem; border-radius: 5px;
-  font-size: 0.85rem; font-weight: 400;
-  transition: border-color 0.2s, color 0.2s;
-}
-.btn-ghost:hover { border-color: var(--gold); color: var(--text); }
-
-.hero-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
-.pill {
-  display: inline-block;
-  background: var(--surface); border: 1px solid var(--border);
-  padding: 0.3rem 0.9rem; border-radius: 100px;
-  font-size: 0.72rem; color: var(--muted);
-  letter-spacing: 0.02em;
-}
-
-.hero-right {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-right img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  filter: brightness(0.75);
-}
-
-.hero-right-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to right, var(--bg) 0%, transparent 30%);
-}
-
-/* STATS */
-.stats-bar {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.stats-bar-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1px; background: var(--border);
-}
-
-.stat-item {
-  background: var(--surface);
-  padding: 1.5rem 2rem;
-  text-align: center;
-}
-
-.stat-num {
-  font-family: 'Fraunces', serif;
-  font-size: 2rem; font-weight: 400;
-  color: var(--gold); line-height: 1;
-  margin-bottom: 0.3rem;
-}
-
-.stat-label {
-  font-size: 0.7rem; color: var(--muted);
-  letter-spacing: 0.08em; text-transform: uppercase;
-}
-
-/* SECTIONS */
-.section { padding: 5.5rem 2rem; }
-.container { max-width: 1100px; margin: 0 auto; }
-
-.eyebrow {
-  font-size: 0.68rem; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 0.8rem;
-  display: flex; align-items: center; gap: 0.6rem;
-}
-.eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); display: inline-block; }
-
-.h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
-  font-weight: 400; line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-/* TJENESTER */
-.services { background: var(--surface); border-top: 1px solid var(--border); }
-
-.services-head {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap;
-}
-
-.services-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 8px; overflow: hidden;
-}
-
-.service-item {
-  background: var(--card);
-  padding: 2rem 1.75rem;
-  transition: background 0.2s;
-  border-top: 2px solid transparent;
-}
-.service-item:hover { background: #232323; border-top-color: var(--gold); }
-
-.service-num {
-  font-size: 0.62rem; font-weight: 600; color: var(--gold);
-  letter-spacing: 0.1em; margin-bottom: 1rem; display: block;
-}
-
-.service-name {
-  font-family: 'Fraunces', serif;
-  font-size: 1.2rem; font-weight: 400;
-  margin-bottom: 0.6rem;
-}
-
-.service-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.1rem; }
-
-.service-price { font-size: 0.8rem; font-weight: 600; color: var(--gold); }
-
-/* GALLERI */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 0.75rem;
-}
-
-.g-item {
-  border-radius: 6px; overflow: hidden;
-  background: var(--surface);
-}
-.g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
-.g-item:hover img { transform: scale(1.04); }
-.g-item.tall { grid-row: span 2; aspect-ratio: 2/3; }
-.g-item.normal { aspect-ratio: 4/3; }
-
-/* OM OSS */
-.about-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: center;
-}
-
-.about-img-wrap { position: relative; }
-
-.about-img {
-  width: 100%; aspect-ratio: 4/5;
-  border-radius: 10px; overflow: hidden;
-  border: 1px solid var(--border);
-}
-.about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-.about-badge {
-  position: absolute; bottom: -1rem; right: -1rem;
-  background: var(--gold); color: #0f0f0f;
-  padding: 1.25rem 1.5rem;
-  border-radius: 8px; text-align: center;
-}
-.about-badge-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 400; line-height: 1; display: block; }
-.about-badge-text { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; opacity: 0.75; }
-
-.about-text .h2 { margin-bottom: 1.25rem; margin-top: 0.5rem; }
-.about-text p { color: var(--muted); font-size: 0.9rem; line-height: 1.85; margin-bottom: 1rem; }
-
-.about-checks { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.75rem; }
-.about-check { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.87rem; color: var(--text); }
-.check-icon {
-  width: 18px; height: 18px;
-  background: var(--gold-dim); color: var(--gold);
-  border-radius: 50%; display: flex; align-items: center;
-  justify-content: center; font-size: 0.6rem; flex-shrink: 0;
-  margin-top: 2px; font-weight: 700;
-}
-
-/* CTA */
-.cta-section {
-  background: var(--gold);
-  padding: 5rem 2rem; text-align: center;
-}
-
-.cta-inner { max-width: 560px; margin: 0 auto; }
-
-.cta-h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  font-weight: 400; color: #0f0f0f; line-height: 1.05;
-  letter-spacing: -0.02em; margin-bottom: 1rem;
-}
-
-.cta-h2 em { font-style: italic; }
-
-.cta-p { color: rgba(0,0,0,0.55); font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
-
-.btn-dark {
-  display: inline-block;
-  background: #0f0f0f; color: var(--gold);
-  padding: 0.9rem 2.25rem; border-radius: 5px;
-  font-size: 0.88rem; font-weight: 600;
-  transition: opacity 0.2s, transform 0.2s;
-}
-.btn-dark:hover { opacity: 0.85; transform: translateY(-1px); }
-
-.cta-meta {
-  display: flex; gap: 1.5rem; justify-content: center;
-  flex-wrap: wrap; margin-top: 1.75rem;
-}
-.cta-meta-item { font-size: 0.78rem; color: rgba(0,0,0,0.45); }
-
-/* KONTAKT */
-.contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: start;
-}
-
-.info-block { margin-bottom: 1.5rem; }
-.info-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
-.info-value { font-size: 0.92rem; color: var(--text); }
-.info-value a { color: var(--text); transition: color 0.15s; }
-.info-value a:hover { color: var(--gold); }
-
-.hours-table { width: 100%; font-size: 0.85rem; margin-top: 0.5rem; }
-.hours-table tr { border-bottom: 1px solid var(--border); }
-.hours-table td { padding: 0.5rem 0; }
-.hours-table td:first-child { color: var(--muted); }
-.hours-table td:last-child { text-align: right; font-weight: 500; }
-.hours-table .closed td { color: var(--border) !important; font-weight: 300 !important; }
-
-.contact-form { display: flex; flex-direction: column; gap: 1rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-lbl { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-.form-ctrl {
-  background: var(--surface); border: 1px solid var(--border);
-  color: var(--text); padding: 0.78rem 1rem;
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem;
-  border-radius: 5px; outline: none; transition: border-color 0.15s; width: 100%;
-}
-.form-ctrl:focus { border-color: var(--gold); }
-.form-ctrl::placeholder { color: #444; }
-textarea.form-ctrl { resize: vertical; min-height: 110px; }
-.form-btn {
-  background: var(--gold); color: #0f0f0f;
-  border: none; padding: 0.85rem 2rem;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.82rem; font-weight: 600;
-  cursor: pointer; border-radius: 5px;
-  transition: background 0.2s; align-self: flex-start;
-}
-.form-btn:hover { background: var(--gold-l); }
-
-/* FOOTER */
-footer {
-  background: #080808;
-  border-top: 1px solid var(--border);
-  padding: 2rem 2rem;
-}
-
-.footer-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: flex; justify-content: space-between;
-  align-items: center; flex-wrap: wrap; gap: 1rem;
-}
-
-.footer-logo img { height: 32px; width: auto; object-fit: contain; }
-
-.footer-links { display: flex; gap: 1.5rem; list-style: none; }
-.footer-links a { color: #444; font-size: 0.75rem; transition: color 0.15s; }
-.footer-links a:hover { color: var(--muted); }
-
-.footer-copy { font-size: 0.7rem; color: #333; }
-
-/* REVEAL */
-.reveal { animation: revealUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; animation-timeline: view(); animation-range: entry 0% entry 22%; }
-@keyframes revealUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 3.5rem 1.5rem 2rem; }
-  .hero-right { height: 280px; }
-  .stats-bar-inner { grid-template-columns: 1fr 1fr; }
-  .section { padding: 3.5rem 1.5rem; }
-  .services-head { flex-direction: column; align-items: flex-start; }
-  .services-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .g-item.tall { grid-row: span 1; aspect-ratio: 1; }
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .about-badge { display: none; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; text-align: center; }
-  .cta-meta { flex-direction: column; align-items: center; gap: 0.5rem; }
-}
-```
-
+    :root { --bg: #0f0f0f; --surface: #181818; --card: #1e1e1e; --border: #2a2a2a; --text: #f0ece4; --muted: #888880; --gold: #d4a017; --gold-l: #f0c040; --gold-dim: rgba(212,160,23,0.12); }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,15,15,0.95); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 64px; }
+    .nav-logo img { height: 40px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-links a { display: block; padding: 0.4rem 0.9rem; font-size: 0.8rem; color: var(--muted); border-radius: 5px; font-weight: 400; transition: color 0.15s, background 0.15s; letter-spacing: 0.03em; }
+    .nav-links a:hover { color: var(--text); background: var(--surface); }
+    .nav-cta { background: var(--gold) !important; color: #0f0f0f !important; font-weight: 600 !important; padding: 0.45rem 1.2rem !important; border-radius: 5px; }
+    .nav-cta:hover { background: var(--gold-l) !important; }
+    .hero { padding-top: 64px; min-height: 100svh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 30% 50%, rgba(212,160,23,0.06), transparent 70%); pointer-events: none; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem 5rem 5rem; position: relative; z-index: 1; }
+    .hero-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem; }
+    .hero-label::before { content: ''; width: 28px; height: 1px; background: var(--gold); display: inline-block; }
+    .hero-h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 5.5vw, 4.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+    .hero-h1 em { font-style: italic; color: var(--gold); }
+    .hero-p { font-size: 0.95rem; color: var(--muted); max-width: 360px; line-height: 1.8; margin-bottom: 2.25rem; }
+    .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .btn-gold { display: inline-block; background: var(--gold); color: #0f0f0f; padding: 0.85rem 2rem; border-radius: 5px; font-size: 0.85rem; font-weight: 600; transition: background 0.2s, transform 0.2s; }
+    .btn-gold:hover { background: var(--gold-l); transform: translateY(-1px); }
+    .btn-ghost { display: inline-block; border: 1px solid var(--border); color: var(--muted); padding: 0.85rem 2rem; border-radius: 5px; font-size: 0.85rem; font-weight: 400; transition: border-color 0.2s, color 0.2s; }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--text); }
+    .hero-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pill { display: inline-block; background: var(--surface); border: 1px solid var(--border); padding: 0.3rem 0.9rem; border-radius: 100px; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.02em; }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.75); }
+    .hero-right-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--bg) 0%, transparent 30%); }
+    .stats-bar { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stats-bar-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .stat-item { background: var(--surface); padding: 1.5rem 2rem; text-align: center; }
+    .stat-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 400; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    .section { padding: 5.5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.6rem; }
+    .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); display: inline-block; }
+    .h2 { font-family: 'Fraunces', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; }
+    .services { background: var(--surface); border-top: 1px solid var(--border); }
+    .services-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .service-item { background: var(--card); padding: 2rem 1.75rem; transition: background 0.2s; border-top: 2px solid transparent; }
+    .service-item:hover { background: #232323; border-top-color: var(--gold); }
+    .service-num { font-size: 0.62rem; font-weight: 600; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
+    .service-name { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 0.6rem; }
+    .service-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.1rem; }
+    .service-price { font-size: 0.8rem; font-weight: 600; color: var(--gold); }
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 0.75rem; }
+    .g-item { border-radius: 6px; overflow: hidden; background: var(--surface); }
+    .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .g-item:hover img { transform: scale(1.04); }
+    .g-item.tall { grid-row: span 2; aspect-ratio: 2/3; }
+    .g-item.normal { aspect-ratio: 4/3; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img { width: 100%; aspect-ratio: 4/5; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-badge { position: absolute; bottom: -1rem; right: -1rem; background: var(--gold); color: #0f0f0f; padding: 1.25rem 1.5rem; border-radius: 8px; text-align: center; }
+    .about-badge-num { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 400; line-height: 1; display: block; }
+    .about-badge-text { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; opacity: 0.75; }
+    .about-text .h2 { margin-bottom: 1.25rem; margin-top: 0.5rem; }
+    .about-text p { color: var(--muted); font-size: 0.9rem; line-height: 1.85; margin-bottom: 1rem; }
+    .about-checks { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.75rem; }
+    .about-check { display: flex; gap: 0.75rem; align-items: flex-start; font-size: 0.87rem; color: var(--text); }
+    .check-icon { width: 18px; height: 18px; background: var(--gold-dim); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
+    .cta-section { background: var(--gold); padding: 5rem 2rem; text-align: center; }
+    .cta-inner { max-width: 560px; margin: 0 auto; }
+    .cta-h2 { font-family: 'Fraunces', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; color: #0f0f0f; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .cta-h2 em { font-style: italic; }
+    .cta-p { color: rgba(0,0,0,0.55); font-size: 0.95rem; line-height: 1.75; margin-bottom: 2rem; }
+    .btn-dark { display: inline-block; background: #0f0f0f; color: var(--gold); padding: 0.9rem 2.25rem; border-radius: 5px; font-size: 0.88rem; font-weight: 600; transition: opacity 0.2s, transform 0.2s; }
+    .btn-dark:hover { opacity: 0.85; transform: translateY(-1px); }
+    .cta-meta { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 1.75rem; }
+    .cta-meta-item { font-size: 0.78rem; color: rgba(0,0,0,0.45); }
+    .info-block { margin-bottom: 1.5rem; }
+    .info-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+    .info-value { font-size: 0.92rem; color: var(--text); }
+    .info-value a { color: var(--text); transition: color 0.15s; }
+    .info-value a:hover { color: var(--gold); }
+    .hours-table { width: 100%; font-size: 0.85rem; margin-top: 0.5rem; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table td { padding: 0.5rem 0; }
+    .hours-table td:first-child { color: var(--muted); }
+    .hours-table td:last-child { text-align: right; font-weight: 500; }
+    .hours-table .closed td { color: var(--border) !important; font-weight: 300 !important; }
+    footer { background: #080808; border-top: 1px solid var(--border); padding: 2rem 2rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo img { height: 32px; width: auto; object-fit: contain; }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a { color: #444; font-size: 0.75rem; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--muted); }
+    .footer-copy { font-size: 0.7rem; color: #333; }
+    .reveal { animation: revealUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; animation-timeline: view(); animation-range: entry 0% entry 22%; }
+    @keyframes revealUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 3.5rem 1.5rem 2rem; }
+      .hero-right { height: 280px; }
+      .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+      .section { padding: 3.5rem 1.5rem; }
+      .services-head { flex-direction: column; align-items: flex-start; }
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .g-item.tall { grid-row: span 1; aspect-ratio: 1; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-badge { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .cta-meta { flex-direction: column; align-items: center; gap: 0.5rem; }
+    }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="/mnt/user-data/uploads/IMG_3607.png" alt="Samme Saks" />
+      <img src="logo.png" alt="Samme Saks" />
     </a>
     <ul class="nav-links">
       <li><a href="#om-oss">Om oss</a></li>
@@ -452,8 +139,6 @@ footer {
     </ul>
   </div>
 </nav>
-
-<!-- HERO -->
 
 <div class="hero">
   <div class="hero-left">
@@ -471,35 +156,19 @@ footer {
     </div>
   </div>
   <div class="hero-right">
-    <img src="/mnt/user-data/uploads/IMG_3608.jpeg" alt="Samme Saks salong" />
+    <img src="salong.jpeg" alt="Samme Saks salong" />
     <div class="hero-right-overlay"></div>
   </div>
 </div>
 
-<!-- STATS -->
-
 <div class="stats-bar">
   <div class="stats-bar-inner">
-    <div class="stat-item">
-      <div class="stat-num">30+</div>
-      <div class="stat-label">Års erfaring</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">4.8</div>
-      <div class="stat-label">Google-vurdering</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">3+</div>
-      <div class="stat-label">Tjenester</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">Alltid</div>
-      <div class="stat-label">Drop-in velkommen</div>
-    </div>
+    <div class="stat-item"><div class="stat-num">30+</div><div class="stat-label">Års erfaring</div></div>
+    <div class="stat-item"><div class="stat-num">4.8</div><div class="stat-label">Google-vurdering</div></div>
+    <div class="stat-item"><div class="stat-num">3+</div><div class="stat-label">Tjenester</div></div>
+    <div class="stat-item"><div class="stat-num">Alltid</div><div class="stat-label">Drop-in velkommen</div></div>
   </div>
 </div>
-
-<!-- TJENESTER -->
 
 <section class="services section" id="tjenester">
   <div class="container">
@@ -511,86 +180,37 @@ footer {
       <a href="https://bestill.timma.no/sammesaksfrisor" target="_blank" class="btn-gold">Bestill time</a>
     </div>
     <div class="services-grid reveal">
-      <div class="service-item">
-        <span class="service-num">01</span>
-        <div class="service-name">Herreklipp</div>
-        <p class="service-desc">Klassiske og moderne klipp for menn. Skinfade, taperfade og gradering — alltid presist utført.</p>
-        <div class="service-price">Fra kr 559</div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">02</span>
-        <div class="service-name">Dameklipp</div>
-        <p class="service-desc">Klipp og styling tilpasset deg og din hverdag. For alle hårtyper og lengder.</p>
-        <div class="service-price">Fra kr 559</div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">03</span>
-        <div class="service-name">Barneklipp</div>
-        <p class="service-desc">Tålmodige og erfarne frisører som gjør det trygt og hyggelig for de minste.</p>
-        <div class="service-price">Fra kr 299</div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">04</span>
-        <div class="service-name">Skjegg og bart</div>
-        <p class="service-desc">Trimming og forming av skjegg og bart. Kan kombineres med klipp.</p>
-        <div class="service-price">Fra kr 200</div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">05</span>
-        <div class="service-name">Farge og behandling</div>
-        <p class="service-desc">Hårfarge, highlights og behandlinger. Pris oppgis etter konsultasjon.</p>
-        <div class="service-price">Pris etter avtale</div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">06</span>
-        <div class="service-name">VIP Time</div>
-        <p class="service-desc">Eksklusiv kveldstid kl. 19:00. Ring minst 24 timer i forveien for å bestille.</p>
-        <div class="service-price">kr 1 699</div>
-      </div>
+      <div class="service-item"><span class="service-num">01</span><div class="service-name">Herreklipp</div><p class="service-desc">Klassiske og moderne klipp for menn. Skinfade, taperfade og gradering — alltid presist utført.</p><div class="service-price">Fra kr 559</div></div>
+      <div class="service-item"><span class="service-num">02</span><div class="service-name">Dameklipp</div><p class="service-desc">Klipp og styling tilpasset deg og din hverdag. For alle hårtyper og lengder.</p><div class="service-price">Fra kr 559</div></div>
+      <div class="service-item"><span class="service-num">03</span><div class="service-name">Barneklipp</div><p class="service-desc">Tålmodige og erfarne frisører som gjør det trygt og hyggelig for de minste.</p><div class="service-price">Fra kr 299</div></div>
+      <div class="service-item"><span class="service-num">04</span><div class="service-name">Skjegg og bart</div><p class="service-desc">Trimming og forming av skjegg og bart. Kan kombineres med klipp.</p><div class="service-price">Fra kr 200</div></div>
+      <div class="service-item"><span class="service-num">05</span><div class="service-name">Farge og behandling</div><p class="service-desc">Hårfarge, highlights og behandlinger. Pris oppgis etter konsultasjon.</p><div class="service-price">Pris etter avtale</div></div>
+      <div class="service-item"><span class="service-num">06</span><div class="service-name">VIP Time</div><p class="service-desc">Eksklusiv kveldstid kl. 19:00. Ring minst 24 timer i forveien for å bestille.</p><div class="service-price">kr 1 699</div></div>
     </div>
     <p style="font-size:0.72rem;color:var(--muted);margin-top:1rem;">* Helg og høytid kan medføre tillegg på kr 60–100.</p>
   </div>
 </section>
-
-<!-- GALLERI -->
 
 <section class="section" id="galleri" style="background:var(--bg);">
   <div class="container">
     <div class="eyebrow reveal">Galleri</div>
     <h2 class="h2 reveal" style="margin-bottom:2rem;">Fra salongen</h2>
     <div class="gallery-grid reveal">
-      <div class="g-item tall">
-        <img src="/mnt/user-data/uploads/IMG_3608.jpeg" alt="Samme Saks salong" />
-      </div>
-      <div class="g-item normal">
-        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=450&fit=crop" alt="Herreklipp" />
-      </div>
-      <div class="g-item normal">
-        <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&h=450&fit=crop" alt="Salong" />
-      </div>
-      <div class="g-item normal">
-        <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&h=450&fit=crop" alt="Frisør" />
-      </div>
-      <div class="g-item normal">
-        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=450&fit=crop" alt="Klipp" />
-      </div>
+      <div class="g-item tall"><img src="salong.jpeg" alt="Samme Saks salong" /></div>
+      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=450&fit=crop" alt="Herreklipp" /></div>
+      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&h=450&fit=crop" alt="Salong" /></div>
+      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&h=450&fit=crop" alt="Frisør" /></div>
+      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=450&fit=crop" alt="Klipp" /></div>
     </div>
   </div>
 </section>
-
-<!-- OM OSS -->
 
 <section class="section" id="om-oss" style="background:var(--surface);border-top:1px solid var(--border);">
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <div class="about-img">
-          <img src="/mnt/user-data/uploads/IMG_3608.jpeg" alt="Samme Saks Lillestrøm" />
-        </div>
-        <div class="about-badge">
-          <span class="about-badge-num">30+</span>
-          <span class="about-badge-text">Års erfaring</span>
-        </div>
+        <div class="about-img"><img src="salong.jpeg" alt="Samme Saks Lillestrøm" /></div>
+        <div class="about-badge"><span class="about-badge-num">30+</span><span class="about-badge-text">Års erfaring</span></div>
       </div>
       <div class="about-text reveal">
         <div class="eyebrow">Om oss</div>
@@ -598,29 +218,15 @@ footer {
         <p style="margin-top:1.25rem;">Samme Saks er den lokale frisørsalongen for hele familien — etablert i Lillestrøm med fokus på service, pris og beliggenhet.</p>
         <p>Vi har frisører med fra 10 til 30 års erfaring, som alltid tar seg tid til å lytte og levere det du ønsker.</p>
         <div class="about-checks">
-          <div class="about-check">
-            <div class="check-icon">✓</div>
-            <span>Gratis parkering i Aimo Park ved Kiwi, rett utenfor salongen</span>
-          </div>
-          <div class="about-check">
-            <div class="check-icon">✓</div>
-            <span>Drop-in velkommen — ingen time nødvendig</span>
-          </div>
-          <div class="about-check">
-            <div class="check-icon">✓</div>
-            <span>Vipps, kort og kontant — vi tar imot alle betalingsmåter</span>
-          </div>
-          <div class="about-check">
-            <div class="check-icon">✓</div>
-            <span>Ærlige priser — spør alltid frisøren før de starter</span>
-          </div>
+          <div class="about-check"><div class="check-icon">✓</div><span>Gratis parkering i Aimo Park ved Kiwi, rett utenfor salongen</span></div>
+          <div class="about-check"><div class="check-icon">✓</div><span>Drop-in velkommen — ingen time nødvendig</span></div>
+          <div class="about-check"><div class="check-icon">✓</div><span>Vipps, kort og kontant — vi tar imot alle betalingsmåter</span></div>
+          <div class="about-check"><div class="check-icon">✓</div><span>Ærlige priser — spør alltid frisøren før de starter</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- BOOKING CTA -->
 
 <div class="cta-section">
   <div class="cta-inner reveal">
@@ -635,26 +241,15 @@ footer {
   </div>
 </div>
 
-<!-- KONTAKT -->
-
 <section class="section" id="kontakt" style="background:var(--bg);">
   <div class="container">
     <div class="eyebrow reveal">Finn oss</div>
     <h2 class="h2 reveal" style="margin-bottom:2.5rem;">Kontaktinformasjon</h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="reveal">
       <div>
-        <div class="info-block">
-          <div class="info-label">Adresse</div>
-          <div class="info-value"><a href="https://maps.google.com/?q=Stillverksveien+16,+2004+Lillestrøm" target="_blank">Stillverksveien 16, 2004 Lillestrøm</a></div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Telefon</div>
-          <div class="info-value"><a href="tel:40085509">40 08 55 09</a></div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Instagram</div>
-          <div class="info-value"><a href="https://instagram.com/sammesaks" target="_blank">@sammesaks</a></div>
-        </div>
+        <div class="info-block"><div class="info-label">Adresse</div><div class="info-value"><a href="https://maps.google.com/?q=Stillverksveien+16,+2004+Lillestrøm" target="_blank">Stillverksveien 16, 2004 Lillestrøm</a></div></div>
+        <div class="info-block"><div class="info-label">Telefon</div><div class="info-value"><a href="tel:40085509">40 08 55 09</a></div></div>
+        <div class="info-block"><div class="info-label">Instagram</div><div class="info-value"><a href="https://instagram.com/sammesaks" target="_blank">@sammesaks</a></div></div>
         <div class="info-block">
           <div class="info-label">Åpningstider</div>
           <table class="hours-table">
@@ -664,7 +259,7 @@ footer {
           </table>
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:1.25rem;justify-content:center;padding:2.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-align:center;">
+      <div style="display:flex;flex-direction:column;gap:1.25rem;padding:2.5rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-align:center;">
         <p style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:400;line-height:1.2;">Klar for en ny frisyre?</p>
         <p style="font-size:0.88rem;color:var(--muted);line-height:1.75;">Book time enkelt og raskt online. Velg tjeneste, dag og tid — vi bekrefter umiddelbart.</p>
         <a href="https://bestill.timma.no/sammesaksfrisor" target="_blank" class="btn-gold" style="align-self:center;font-size:0.95rem;padding:1rem 2.5rem;">Bestill time</a>
@@ -674,13 +269,9 @@ footer {
   </div>
 </section>
 
-<!-- FOOTER -->
-
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
-      <img src="/mnt/user-data/uploads/IMG_3607.png" alt="Samme Saks" />
-    </div>
+    <div class="footer-logo"><img src="logo.png" alt="Samme Saks" /></div>
     <ul class="footer-links">
       <li><a href="#tjenester">Tjenester</a></li>
       <li><a href="#om-oss">Om oss</a></li>
@@ -692,15 +283,6 @@ footer {
   </div>
 </footer>
 
-<script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-btn');
-    btn.textContent = 'Sendt ✓';
-    btn.style.background = '#2d5a3d';
-    setTimeout(() => { btn.textContent = 'Send melding'; btn.style.background = ''; e.target.reset(); }, 3000);
-  }
-</script>
-
 </body>
 </html>
+
