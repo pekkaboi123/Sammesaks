@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samme Saks — Frisør i Lillestrøm</title>
+  <title>Samme Saks Frisør — Herreklipp, Dameklipp og Barneklipp i Lillestrøm</title>
+  <meta name="description" content="Samme Saks er din lokale frisørsalong i Lillestrøm. Dame, herre og barn. Frisører med opptil 30 års erfaring. Drop-in velkommen. Gratis parkering. Bestill time online." />
+  <meta name="keywords" content="frisør lillestrøm, herreklipp lillestrøm, dameklipp lillestrøm, barneklipp lillestrøm, frisørsalong lillestrøm, skinfade lillestrøm, samme saks" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Samme Saks Frisør — Lillestrøm" />
+  <meta property="og:description" content="Din lokale frisørsalong i Lillestrøm for dame, herre og barn. Drop-in velkommen. Bestill time online." />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HairSalon","name":"Samme Saks Frisør","telephone":"+4740085509","address":{"@type":"PostalAddress","streetAddress":"Stillverksveien 16","addressLocality":"Lillestrøm","postalCode":"2004","addressCountry":"NO"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"15:00"}],"priceRange":"kr 299 – kr 1699","sameAs":["https://www.instagram.com/sammesaks"]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -35,7 +42,7 @@
     .btn-ghost { display: inline-block; border: 1px solid var(--border); color: var(--muted); padding: 0.85rem 2rem; border-radius: 5px; font-size: 0.85rem; font-weight: 400; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--gold); color: var(--text); }
     .hero-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .pill { display: inline-block; background: var(--surface); border: 1px solid var(--border); padding: 0.3rem 0.9rem; border-radius: 100px; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.02em; }
+    .pill { display: inline-block; background: var(--surface); border: 1px solid var(--border); padding: 0.3rem 0.9rem; border-radius: 100px; font-size: 0.72rem; color: var(--muted); }
     .hero-right { position: relative; overflow: hidden; }
     .hero-right img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.75); }
     .hero-right-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--bg) 0%, transparent 30%); }
@@ -58,7 +65,7 @@
     .service-name { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 0.6rem; }
     .service-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.1rem; }
     .service-price { font-size: 0.8rem; font-weight: 600; color: var(--gold); }
-    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 0.75rem; }
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
     .g-item { border-radius: 6px; overflow: hidden; background: var(--surface); }
     .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
     .g-item:hover img { transform: scale(1.04); }
@@ -90,10 +97,10 @@
     .info-value { font-size: 0.92rem; color: var(--text); }
     .info-value a { color: var(--text); transition: color 0.15s; }
     .info-value a:hover { color: var(--gold); }
-    .hours-table { width: 100%; font-size: 0.85rem; margin-top: 0.5rem; }
+    .hours-table { width: 100%; font-size: 0.85rem; margin-top: 0.5rem; border-collapse: collapse; }
     .hours-table tr { border-bottom: 1px solid var(--border); }
-    .hours-table td { padding: 0.5rem 0; }
-    .hours-table td:first-child { color: var(--muted); }
+    .hours-table td { padding: 0.5rem 0.5rem 0.5rem 0; white-space: nowrap; }
+    .hours-table td:first-child { color: var(--muted); width: 60%; }
     .hours-table td:last-child { text-align: right; font-weight: 500; }
     .hours-table .closed td { color: var(--border) !important; font-weight: 300 !important; }
     footer { background: #080808; border-top: 1px solid var(--border); padding: 2rem 2rem; }
@@ -116,8 +123,9 @@
       .services-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .g-item.tall { grid-row: span 1; aspect-ratio: 1; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .about-badge { display: none; }
+      .kontakt-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
       .footer-inner { flex-direction: column; text-align: center; }
       .cta-meta { flex-direction: column; align-items: center; gap: 0.5rem; }
     }
@@ -127,9 +135,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <img src="IMG_3607.webp" alt="Samme Saks" />
-    </a>
+    <a href="#" class="nav-logo"><img src="IMG_3607.webp" alt="Samme Saks" /></a>
     <ul class="nav-links">
       <li><a href="#om-oss">Om oss</a></li>
       <li><a href="#tjenester">Tjenester</a></li>
@@ -156,7 +162,7 @@
     </div>
   </div>
   <div class="hero-right">
-    <img src="IMG_3608.jpeg" alt="Samme Saks salong" />
+    <img src="IMG_3608.jpeg" alt="Samme Saks frisørsalong Lillestrøm" />
     <div class="hero-right-overlay"></div>
   </div>
 </div>
@@ -196,11 +202,11 @@
     <div class="eyebrow reveal">Galleri</div>
     <h2 class="h2 reveal" style="margin-bottom:2rem;">Fra salongen</h2>
     <div class="gallery-grid reveal">
-      <div class="g-item tall"><img src="salong.jpeg" alt="Samme Saks salong" /></div>
-      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=450&fit=crop" alt="Herreklipp" /></div>
-      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&h=450&fit=crop" alt="Salong" /></div>
+      <div class="g-item tall"><img src="IMG_3608.jpeg" alt="Samme Saks frisørsalong Lillestrøm" /></div>
+      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=450&fit=crop" alt="Herreklipp Lillestrøm" /></div>
+      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&h=450&fit=crop" alt="Frisørsalong" /></div>
       <div class="g-item normal"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&h=450&fit=crop" alt="Frisør" /></div>
-      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=450&fit=crop" alt="Klipp" /></div>
+      <div class="g-item normal"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=450&fit=crop" alt="Klipp og styling" /></div>
     </div>
   </div>
 </section>
@@ -209,13 +215,13 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-img-wrap reveal">
-        <div class="about-img"><img src="salong.jpeg" alt="Samme Saks Lillestrøm" /></div>
+        <div class="about-img"><img src="IMG_3608.jpeg" alt="Samme Saks Lillestrøm" /></div>
         <div class="about-badge"><span class="about-badge-num">30+</span><span class="about-badge-text">Års erfaring</span></div>
       </div>
       <div class="about-text reveal">
         <div class="eyebrow">Om oss</div>
         <h2 class="h2">Lillestrøms lokale frisørsalong</h2>
-        <p style="margin-top:1.25rem;">Samme Saks er den lokale frisørsalongen for hele familien — etablert i Lillestrøm med fokus på service, pris og beliggenhet.</p>
+        <p style="margin-top:1.25rem;">Samme Saks er den lokale frisørsalongen for dame, herre og barn — etablert i Lillestrøm med fokus på service, pris og beliggenhet.</p>
         <p>Vi har frisører med fra 10 til 30 års erfaring, som alltid tar seg tid til å lytte og levere det du ønsker.</p>
         <div class="about-checks">
           <div class="about-check"><div class="check-icon">✓</div><span>Gratis parkering i Aimo Park ved Kiwi, rett utenfor salongen</span></div>
@@ -245,7 +251,7 @@
   <div class="container">
     <div class="eyebrow reveal">Finn oss</div>
     <h2 class="h2 reveal" style="margin-bottom:2.5rem;">Kontaktinformasjon</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="reveal">
+    <div class="kontakt-grid reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
       <div>
         <div class="info-block"><div class="info-label">Adresse</div><div class="info-value"><a href="https://maps.google.com/?q=Stillverksveien+16,+2004+Lillestrøm" target="_blank">Stillverksveien 16, 2004 Lillestrøm</a></div></div>
         <div class="info-block"><div class="info-label">Telefon</div><div class="info-value"><a href="tel:40085509">40 08 55 09</a></div></div>
@@ -253,7 +259,11 @@
         <div class="info-block">
           <div class="info-label">Åpningstider</div>
           <table class="hours-table">
-            <tr><td>Mandag – Fredag</td><td>10:00 – 18:00</td></tr>
+            <tr><td>Mandag</td><td>10:00 – 18:00</td></tr>
+            <tr><td>Tirsdag</td><td>10:00 – 18:00</td></tr>
+            <tr><td>Onsdag</td><td>10:00 – 18:00</td></tr>
+            <tr><td>Torsdag</td><td>10:00 – 18:00</td></tr>
+            <tr><td>Fredag</td><td>10:00 – 18:00</td></tr>
             <tr><td>Lørdag</td><td>10:00 – 15:00</td></tr>
             <tr class="closed"><td>Søndag</td><td>Stengt</td></tr>
           </table>
@@ -271,7 +281,7 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo"><img src="logo.png" alt="Samme Saks" /></div>
+    <div class="footer-logo"><img src="IMG_3607.webp" alt="Samme Saks" /></div>
     <ul class="footer-links">
       <li><a href="#tjenester">Tjenester</a></li>
       <li><a href="#om-oss">Om oss</a></li>
@@ -285,4 +295,5 @@
 
 </body>
 </html>
+
 
